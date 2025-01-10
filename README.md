@@ -14,35 +14,40 @@ The goal is to analyze the behavior, stability, and accuracy of both methods usi
 ## Problem Statement
 Solve the 1D scalar convection equation:
 
-```
-∂ϕ/∂t + u ∂ϕ/∂x = 0
-```
+$$
+\frac{\partial \phi}{\partial t} + u \frac{\partial \phi}{\partial x} = 0
+$$
 
 Where:
-- ϕ is the molar concentration
-- u is the constant velocity of the wave
+- $\phi$ is the molar concentration  
+- $u$ is the constant velocity of the wave
 
 ## Methods Implemented
 ### 1. Explicit Upwind Scheme
-- Time Discretization: Forward Time (FT)
-- Space Discretization: Backward Space (BS)
-- Stability depends on CFL condition: `ν = uΔt/Δx ≤ 1`
+- **Time Discretization:** Forward Time (FT)  
+- **Space Discretization:** Backward Space (BS)  
+- **Stability Condition:**
+
+$$
+\nu = \frac{u \Delta t}{\Delta x} \leq 1
+$$
 
 ### 2. Implicit Upwind Scheme
-- Time Discretization: Backward Time
-- Space Discretization: Backward Space
-- Unconditionally stable but introduces numerical diffusion.
+- **Time Discretization:** Backward Time  
+- **Space Discretization:** Backward Space  
+- **Unconditionally stable** but introduces numerical diffusion.
 
 ## MATLAB Scripts
 - **Explicit Scheme:** `explicit_scheme.m`
 - **Implicit Scheme:** `implicit_scheme.m`
 
 ## Results Summary
-- **Explicit Scheme:** Stable when CFL ≤ 1. Accurate for CFL = 1.
+- **Explicit Scheme:** Stable when CFL $\leq 1$. Accurate for CFL $= 1$.  
 - **Implicit Scheme:** Always stable but diffusive, especially for high CFL.
-- **Computation Time:**
-  - Explicit: ~46.41s (for u = 0.1 m/s)
-  - Implicit: ~63.73s (for u = 0.1 m/s)
+
+**Computation Time:**
+- Explicit: ~46.41s (for $u = 0.1 \text{ m/s}$)  
+- Implicit: ~63.73s (for $u = 0.1 \text{ m/s}$)
 
 ## How to Run
 1. Open MATLAB.
@@ -59,3 +64,4 @@ Author: Prajwal Bharadwaj
 Module: EGIM06 - Computational Fluid Dynamics  
 Institution: Swansea University  
 Year: 2023-2025
+
